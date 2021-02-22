@@ -120,3 +120,25 @@ function validateForm(e) {
   showNotification();
   }
   }
+  const imagenes = document.querySelectorAll('.project-img')
+const imagenLight = document.querySelector('.modal-project-image');
+const contenedorLight = document.querySelector('.imagen-carrusel')
+
+imagenes.forEach(imagen => {
+    imagen.addEventListener('click', () => {
+        aparecerImagen(imagen.getAttribute('src'));
+    })
+});
+contenedorLight.addEventListener('click', (e) => {
+    if (e.target !== imagenLight) {
+        contenedorLight.classList.toggle('show')
+        imagenLight.classList.toggle('showImage')
+        hamburguer.style.opacity = '1';
+    }
+})
+const aparecerImagen = (imagen) => {
+    imagenLight.src = imagen;
+    contenedorLight.classList.toggle('show')
+    imagenLight.classList.toggle('showImage')
+    hamburguer.style.opacity = '0';
+}
